@@ -16,10 +16,13 @@ namespace MainProgram
         // Create Command Instance
         ContactCommand contactCmd = new ContactCommand(connString);
 
+        public BindingSource interBinding;
+
         //DataTable dt;
-        public Contacts()
+        public Contacts(BindingSource mainBinding)
         {
             InitializeComponent();
+            interBinding = mainBinding;
         }
 
 
@@ -29,13 +32,20 @@ namespace MainProgram
             comboBoxSearch.SelectedIndex = 0;
 
             // Add to Data Binding Object to Grid
-            dataGridView1.DataSource = bindingSource1;
+            dataGridView1.DataSource = interBinding;
 
             // Get Data from MS SQL DB to the Binding Source
             GetDataToBindingsource();
 
             // Block Cell ID From Editing
             dataGridView1.Columns[0].ReadOnly = true;
+
+            // Change DataGrid Size
+            Rectangle recNew = new Rectangle();
+            recNew = this.ClientRectangle;
+            recNew.Height = dataGridView1.Height;
+
+
         }
 
         private void GetDataToBindingsource(string searchQuery = "")
@@ -70,7 +80,7 @@ namespace MainProgram
             dt.Locale = System.Globalization.CultureInfo.InvariantCulture;
             // Create Binding with DataTable
             //bindingSource1 = new BindingSource(dt, null);
-            bindingSource1.DataSource = dt;
+            interBinding.DataSource = dt;
 
             // To mark all rows as unchanged
             dt.AcceptChanges();
@@ -106,12 +116,13 @@ namespace MainProgram
             // Add to Data Grid
             dataGridView1.Update();
 
+
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             // Ends Edit on the table
-            bindingSource1.EndEdit();
+            interBinding.EndEdit();
 
             // Uses Command To update DB
             contactCmd.UpdateDb(dt);
@@ -276,6 +287,21 @@ namespace MainProgram
                 // Open file on notepad after file has been written
                 Process.Start("notepad.exe", saveFileDialog1.FileName);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Contacts_ResizeEnd(object sender, EventArgs e)
+        {
+            // Change DataGrid Size
+            Rectangle recNew = new Rectangle();
+            recNew = this.ClientRectangle;
+            recNew.Height = dataGridView1.Height;
+            recNew.Width -= 30;
+            dataGridView1.Size = recNew.Size;
         }
 
         private static System.Data.DataTable ConvertToDatatable<T>(IList<T> data)

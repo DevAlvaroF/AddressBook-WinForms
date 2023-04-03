@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
-            contactsToolStripMenuItem = new ToolStripMenuItem();
-            businessMenuItem = new ToolStripMenuItem();
+            addContactToolStripMenuItem = new ToolStripMenuItem();
             windowsToolStripMenuItem = new ToolStripMenuItem();
             cascadeMenuItem = new ToolStripMenuItem();
             tileVerticalMenuItem = new ToolStripMenuItem();
             tileHorizontalMenuItem = new ToolStripMenuItem();
+            bindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { contactsToolStripMenuItem, windowsToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { addContactToolStripMenuItem, windowsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -49,19 +51,12 @@
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // contactsToolStripMenuItem
+            // addContactToolStripMenuItem
             // 
-            contactsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { businessMenuItem });
-            contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-            contactsToolStripMenuItem.Size = new Size(80, 24);
-            contactsToolStripMenuItem.Text = "Contacts";
-            // 
-            // businessMenuItem
-            // 
-            businessMenuItem.Name = "businessMenuItem";
-            businessMenuItem.Size = new Size(147, 26);
-            businessMenuItem.Text = "Business";
-            businessMenuItem.Click += businessMenuItem_Click;
+            addContactToolStripMenuItem.Name = "addContactToolStripMenuItem";
+            addContactToolStripMenuItem.Size = new Size(138, 24);
+            addContactToolStripMenuItem.Text = "Add/Edit Contact";
+            addContactToolStripMenuItem.Click += addContactToolStripMenuItem_Click;
             // 
             // windowsToolStripMenuItem
             // 
@@ -73,21 +68,21 @@
             // cascadeMenuItem
             // 
             cascadeMenuItem.Name = "cascadeMenuItem";
-            cascadeMenuItem.Size = new Size(224, 26);
+            cascadeMenuItem.Size = new Size(190, 26);
             cascadeMenuItem.Text = "Cascade";
             cascadeMenuItem.Click += cascadeMenuItem_Click;
             // 
             // tileVerticalMenuItem
             // 
             tileVerticalMenuItem.Name = "tileVerticalMenuItem";
-            tileVerticalMenuItem.Size = new Size(224, 26);
+            tileVerticalMenuItem.Size = new Size(190, 26);
             tileVerticalMenuItem.Text = "Tile Vertical";
             tileVerticalMenuItem.Click += tileVerticalToolStripMenuItem_Click;
             // 
             // tileHorizontalMenuItem
             // 
             tileHorizontalMenuItem.Name = "tileHorizontalMenuItem";
-            tileHorizontalMenuItem.Size = new Size(224, 26);
+            tileHorizontalMenuItem.Size = new Size(190, 26);
             tileHorizontalMenuItem.Text = "Tile Horizontal";
             tileHorizontalMenuItem.Click += tileHorizontalMenuItem_Click;
             // 
@@ -102,8 +97,10 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
             Text = "Form1";
+            Load += Main_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,11 +108,11 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem contactsToolStripMenuItem;
-        private ToolStripMenuItem businessMenuItem;
         private ToolStripMenuItem windowsToolStripMenuItem;
         private ToolStripMenuItem cascadeMenuItem;
         private ToolStripMenuItem tileVerticalMenuItem;
         private ToolStripMenuItem tileHorizontalMenuItem;
+        private ToolStripMenuItem addContactToolStripMenuItem;
+        private BindingSource bindingSource1;
     }
 }

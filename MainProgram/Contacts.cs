@@ -294,15 +294,6 @@ namespace MainProgram
 
         }
 
-        private void Contacts_ResizeEnd(object sender, EventArgs e)
-        {
-            // Change DataGrid Size
-            Rectangle recNew = new Rectangle();
-            recNew = this.ClientRectangle;
-            recNew.Height = dataGridView1.Height;
-            recNew.Width -= 30;
-            dataGridView1.Size = recNew.Size;
-        }
 
         private static System.Data.DataTable ConvertToDatatable<T>(IList<T> data)
         {

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactView));
             dataGridView1 = new DataGridView();
             bindingSource1 = new BindingSource(components);
             saveFileDialog1 = new SaveFileDialog();
@@ -40,6 +41,7 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 12);
@@ -47,7 +49,6 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.ScrollBars = ScrollBars.None;
             dataGridView1.Size = new Size(776, 426);
             dataGridView1.TabIndex = 0;
             // 
@@ -58,11 +59,10 @@
             AutoScroll = true;
             ClientSize = new Size(800, 450);
             Controls.Add(dataGridView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ContactView";
-            Text = "ContactView";
+            Text = "All Contacts View";
             Load += ContactView_Load;
-            ResizeEnd += ContactView_ResizeEnd;
-            SizeChanged += ContactView_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);

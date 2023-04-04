@@ -36,12 +36,12 @@ namespace MainProgram
             // Block Cell ID From Editing
             dataGridView1.Columns[0].ReadOnly = true;
 
-            // Change DataGrid Size
-            dataGridView1.Left = 0;
-            dataGridView1.Top = 0;
-            Rectangle recNew = new Rectangle();
-            recNew = this.ClientRectangle;
-            dataGridView1.Size = recNew.Size;
+            //// Change DataGrid Size
+            //dataGridView1.Left = 0;
+            //dataGridView1.Top = 0;
+            //Rectangle recNew = new Rectangle();
+            //recNew = this.ClientRectangle;
+            //dataGridView1.Size = recNew.Size;
 
         }
 
@@ -84,25 +84,6 @@ namespace MainProgram
 
         }
 
-        private void ContactView_ResizeEnd(object sender, EventArgs e)
-        {
-            // Change DataGrid Size
-            Rectangle recNew = new Rectangle();
-            recNew = this.ClientRectangle;
-            recNew.Height = dataGridView1.Height;
-            recNew.Width -= 30;
-            dataGridView1.Size = recNew.Size;
-        }
-
-        private void ContactView_SizeChanged(object sender, EventArgs e)
-        {
-            // Change DataGrid Size
-            Rectangle recNew = new Rectangle();
-            recNew = this.ClientRectangle;
-            recNew.Height = dataGridView1.Height;
-            recNew.Width -= 30;
-            dataGridView1.Size = recNew.Size;
-        }
 
         private static System.Data.DataTable ConvertToDatatable<T>(IList<T> data)
         {

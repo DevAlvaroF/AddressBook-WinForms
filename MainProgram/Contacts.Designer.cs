@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contacts));
             labelTitle = new Label();
             textBoxTitle = new TextBox();
             textBoxFirstName = new TextBox();
@@ -340,6 +341,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(23, 716);
             dataGridView1.Name = "dataGridView1";
@@ -471,10 +473,10 @@
             Controls.Add(labelFirstName);
             Controls.Add(textBoxTitle);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Contacts";
-            Text = "Contacts";
+            Text = "Add/Edit Contacts";
             Load += Contacts_Load;
-            ResizeEnd += Contacts_ResizeEnd;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)InterBinding).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

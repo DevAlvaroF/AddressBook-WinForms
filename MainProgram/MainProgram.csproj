@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\all.ico" />
+    <None Remove="Assets\edit.ico" />
     <None Remove="Assets\icon.ico" />
   </ItemGroup>
 
@@ -34,6 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\all.ico" />
+    <Resource Include="Assets\edit.ico" />
     <Resource Include="Assets\icon.ico" />
   </ItemGroup>
 

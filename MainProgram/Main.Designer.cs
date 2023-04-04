@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             menuStrip1 = new MenuStrip();
             addContactToolStripMenuItem = new ToolStripMenuItem();
             windowsToolStripMenuItem = new ToolStripMenuItem();
@@ -92,11 +93,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
-            Text = "Form1";
+            Text = "Turbo Address Book";
             Load += Main_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
